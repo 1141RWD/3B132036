@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniShop｜我的資料</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./index.html">
+      <span class="brand__mark">M</span><span>MiniShop</span>
+    </a>
+
+    <nav class="nav">
+        <a class="nav__link" href="./index.html">商城</a>
+
+        <a class="nav__link" href="./cart.html">
+            購物車 <span id="cartBadge" class="badge">0</span>
+        </a>
+
+        <!-- ✅ 新增：使用者中心 -->
+        <a class="nav__link hidden" id="profileLink" href="./profile.html">
+            使用者中心
+        </a>
+
+        <!-- 登入 / 登出 -->
+        <a class="nav__link" href="./login.html" id="loginLink">登入</a>
+
+        <!-- 只有管理員可見 -->
+        <a class="nav__link hidden" id="adminLink" href="./admin.html">管理</a>
+    </nav>
+
+
+    <button class="iconBtn" id="themeBtn" type="button" aria-label="切換深色模式">🌙</button>
+  </header>
+
+  <main class="container page page--fade">
+    <section class="panel">
+      <div class="panel__top">
+        <h2>我的基本資料</h2>
+        <div class="stackRow">
+          <span class="tag" id="roleTag">會員</span>
+          <button class="btn btn--ghost btn--sm" id="logoutBtn2" type="button">登出</button>
+        </div>
+      </div>
+
+      <div class="adminGrid">
+        <div class="card">
+          <div class="card__top">
+            <h3>資料設定（不能改帳號/密碼）</h3>
+          </div>
+
+          <form id="profileForm" class="form">
+            <div class="input">
+              <label>帳號（不可修改）</label>
+              <input id="pUsername" disabled />
+            </div>
+
+            <div class="input">
+              <label for="pName">暱稱</label>
+              <input id="pName" maxlength="20" placeholder="例如：小明" />
+            </div>
+
+            <div class="input">
+              <label for="pEmail">Email（可選）</label>
+              <input id="pEmail" maxlength="60" placeholder="例如：abc@gmail.com" />
+            </div>
+
+            <div class="input">
+              <label for="pPhone">電話（可選）</label>
+              <input id="pPhone" maxlength="20" placeholder="例如：0912-345-678" />
+            </div>
+
+            <div class="input">
+              <label for="pAddr">常用地址（可選）</label>
+              <input id="pAddr" maxlength="80" placeholder="例如：台中市北區…" />
+            </div>
+
+            <button class="btn btn--primary" type="submit">儲存修改</button>
+
+
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="card__top">
+            <h3>歷史訂單</h3>
+            <div class="input input--sm" style="min-width:200px;">
+              <label class="srOnly" for="orderQ">搜尋</label>
+              <input id="orderQ" placeholder="搜尋訂單編號/品名…" />
+            </div>
+          </div>
+
+          <div id="myOrders" class="orderList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastHost" class="toastHost" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js" defer></script>
+  <script src="./js/profile.js" defer></script>
+  <script src="./js/newyear.js" defer></script>
+</body>
+</html>

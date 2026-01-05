@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniShop｜管理員</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./index.html">
+      <span class="brand__mark">M</span><span>MiniShop</span>
+    </a>
+    <nav class="nav">
+        <a class="nav__link" href="./index.html">商城</a>
+
+        <a class="nav__link" href="./cart.html">
+            購物車 <span id="cartBadge" class="badge">0</span>
+        </a>
+
+        <!-- ✅ 新增：使用者中心 -->
+        <a class="nav__link hidden" id="profileLink" href="./profile.html">
+            使用者中心
+        </a>
+
+        <!-- 登入 / 登出 -->
+        <a class="nav__link" href="./login.html" id="loginLink">登入</a>
+
+        <!-- 只有管理員可見 -->
+        <a class="nav__link hidden" id="adminLink" href="./admin.html">管理</a>
+    </nav>
+
+    <button class="iconBtn" id="themeBtn" type="button" aria-label="切換深色模式">🌙</button>
+  </header>
+
+  <main class="container page page--fade">
+    <section class="panel">
+      <div class="panel__top">
+        <h2>管理員控制台</h2>
+        <div class="stackRow">
+          <button class="btn btn--ghost" id="resetDemoBtn" type="button">重置資料</button>
+          <button class="btn btn--primary" id="openAddBtn" type="button">＋ 新增商品</button>
+        </div>
+      </div>
+
+      <div class="adminGrid">
+        <div class="card">
+          <div class="card__top">
+            <h3>商品管理</h3>
+            <div class="input input--sm">
+              <label class="srOnly" for="adminQ">搜尋</label>
+              <input id="adminQ" placeholder="搜尋商品…" />
+            </div>
+          </div>
+          <div id="adminProductList" class="adminList"></div>
+        </div>
+
+        <div class="card">
+          <div class="card__top">
+            <h3>訂單列表</h3>
+            <button class="btn btn--ghost btn--sm" id="clearOrdersBtn" type="button">清空訂單</button>
+          </div>
+          <div id="orderList" class="orderList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-close="1"></div>
+    <div class="modal__panel">
+      <div class="modal__top">
+        <h3 id="modalTitle">新增 / 編輯商品</h3>
+        <button class="iconBtn" type="button" data-close="1" aria-label="關閉">✕</button>
+      </div>
+
+      <form id="productForm" class="form">
+        <input type="hidden" id="pid" />
+
+        <div class="form__row">
+          <div class="input">
+            <label for="pname">商品名稱</label>
+            <input id="pname" required maxlength="60" placeholder="例如：羽球拍 Pro 88" />
+          </div>
+
+          <div class="input">
+            <label for="pcat">分類</label>
+            <input id="pcat" required maxlength="30" placeholder="例如：球拍 / 鞋類 / 服飾" />
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="input">
+            <label for="pprice">價格</label>
+            <input id="pprice" required inputmode="numeric" placeholder="例如：2590" />
+          </div>
+
+          <div class="input">
+            <label for="pstock">庫存</label>
+            <input id="pstock" required inputmode="numeric" placeholder="例如：30" />
+          </div>
+        </div>
+
+        <div class="input">
+          <label for="pdesc">描述</label>
+          <textarea id="pdesc" rows="3" maxlength="160" placeholder="寫一段商品特色…"></textarea>
+        </div>
+
+
+
+
+        <div class="form__row">
+          <div class="input">
+            <label for="ptag">標籤（可選）</label>
+            <input id="ptag" maxlength="20" placeholder="例如：熱賣 / 新品" />
+          </div>
+          <div class="input">
+            <label for="pbadge">熱門度（1-100）</label>
+            <input id="pbadge" inputmode="numeric" placeholder="例如：82" />
+          </div>
+        </div>
+
+        <div class="modal__actions">
+          <button class="btn btn--ghost" type="button" data-close="1">取消</button>
+          <button class="btn btn--primary" type="submit">儲存</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toastHost" class="toastHost" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/admin.js" defer></script>
+  <script src="./js/auth.js" defer></script>
+  <script src="./js/newyear.js" defer></script>
+</body>
+</html>

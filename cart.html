@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniShop｜購物車</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./index.html">
+      <span class="brand__mark">M</span><span>MiniShop</span>
+    </a>
+    <nav class="nav">
+        <a class="nav__link" href="./index.html">商城</a>
+
+        <a class="nav__link" href="./cart.html">
+            購物車 <span id="cartBadge" class="badge">0</span>
+        </a>
+
+        <!-- ✅ 新增：使用者中心 -->
+        <a class="nav__link hidden" id="profileLink" href="./profile.html">
+            使用者中心
+        </a>
+
+        <!-- 登入 / 登出 -->
+        <a class="nav__link" href="./login.html" id="loginLink">登入</a>
+
+        <!-- 只有管理員可見 -->
+        <a class="nav__link hidden" id="adminLink" href="./admin.html">管理</a>
+    </nav>
+
+    <button class="iconBtn" id="themeBtn" type="button" aria-label="切換深色模式">🌙</button>
+  </header>
+
+  <main class="container page page--fade">
+    <section class="panel">
+      <div class="panel__top">
+        <h2>購物車</h2>
+        <button class="btn btn--ghost" id="clearCartBtn" type="button">清空</button>
+      </div>
+
+      <div class="cartLayout">
+        <div>
+          <div id="cartList" class="cartList"></div>
+          <div id="emptyCart" class="emptyState hidden">
+            <div class="emptyState__icon">🛒</div>
+            <div>
+              <h3>你的購物車是空的</h3>
+              <p class="muted">回商城加入一些商品吧！</p>
+              <a class="btn btn--primary" href="./index.html">回到商城</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="summary">
+          <h3>結帳摘要</h3>
+          <div class="kv"><span class="muted">小計</span><span id="subTotal">$0</span></div>
+          <div class="kv"><span class="muted">運費</span><span id="shipping">$60</span></div>
+          <div class="kv kv--total"><span>總計</span><span id="grandTotal">$0</span></div>
+
+          <div class="divider"></div>
+
+          <div class="input">
+            <label for="buyerName">收件人</label>
+            <input id="buyerName" placeholder="例如：王小明" />
+          </div>
+          <div class="input">
+            <label for="buyerPhone">電話</label>
+            <input id="buyerPhone" placeholder="例如：0912-345-678" inputmode="tel" />
+          </div>
+          <div class="input">
+            <label for="buyerAddr">地址</label>
+            <input id="buyerAddr" placeholder="例如：台中市北區…" />
+          </div>
+
+          <button class="btn btn--primary btn--block" id="checkoutBtn" type="button">
+            送出訂單
+          </button>
+          <p class="muted tiny">* 本範例用 localStorage 模擬訂單資料，管理端可查看。</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">© MiniShop (Front-end Demo)</span>
+    </div>
+  </footer>
+
+  <div id="toastHost" class="toastHost" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/cart.js" defer></script>
+  <script src="./js/auth.js" defer></script>
+  <script src="./js/newyear.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniShop｜訂單完成</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./index.html">
+      <span class="brand__mark">M</span><span>MiniShop</span>
+    </a>
+
+    <nav class="nav">
+        <a class="nav__link" href="./index.html">商城</a>
+
+        <a class="nav__link" href="./cart.html">
+            購物車 <span id="cartBadge" class="badge">0</span>
+        </a>
+
+        <!-- ✅ 新增：使用者中心 -->
+        <a class="nav__link hidden" id="profileLink" href="./profile.html">
+            使用者中心
+        </a>
+
+        <!-- 登入 / 登出 -->
+        <a class="nav__link" href="./login.html" id="loginLink">登入</a>
+
+        <!-- 只有管理員可見 -->
+        <a class="nav__link hidden" id="adminLink" href="./admin.html">管理</a>
+    </nav>
+
+
+    <button class="iconBtn" id="themeBtn" type="button" aria-label="切換深色模式">🌙</button>
+  </header>
+
+  <main class="container page page--fade">
+    <section class="panel" style="max-width:820px; margin:18px auto 0;">
+      <div class="panel__top">
+        <h2>🎉 訂單已完成</h2>
+        <div class="stackRow">
+          <a class="btn btn--ghost" href="./profile.html">查看歷史訂單</a>
+          <a class="btn btn--primary" href="./index.html">繼續購物</a>
+        </div>
+      </div>
+
+      <div id="successBox" class="card" style="background:transparent; border:none; padding:0;">
+        <div class="orderItem">
+          <div style="font-weight:1000">正在載入訂單資訊…</div>
+          <div class="muted tiny">如果你剛結帳完成，這裡會顯示訂單編號與收件資訊。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastHost" class="toastHost" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js" defer></script>
+  <script src="./js/order_success.js" defer></script>
+  <script src="./js/newyear.js" defer></script>
+</body>
+</html>

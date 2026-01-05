@@ -1,13 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1216</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniShop｜首頁</title>
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
-    我是范智勝
-    jjjjj5
+  <header class="header">
+    <a class="brand" href="./index.html" aria-label="回首頁">
+      <span class="brand__mark">M</span><span>MiniShop</span>
+    </a>
+
+    <nav class="nav">
+        <a class="nav__link" href="./index.html">商城</a>
+
+        <a class="nav__link" href="./cart.html">
+            購物車 <span id="cartBadge" class="badge">0</span>
+        </a>
+
+        <!-- ✅ 新增：使用者中心 -->
+        <a class="nav__link hidden" id="profileLink" href="./profile.html">
+            使用者中心
+        </a>
+
+        <!-- 登入 / 登出 -->
+        <a class="nav__link" href="./login.html" id="loginLink">登入</a>
+
+        <!-- 只有管理員可見 -->
+        <a class="nav__link hidden" id="adminLink" href="./admin.html">管理</a>
+    </nav>
+
+
+
+    <button class="iconBtn" id="themeBtn" type="button" aria-label="切換深色模式">
+      🌙
+    </button>
+  </header>
+
+  <main class="container page page--fade">
+    <section class="hero">
+      <div>
+        <h1>好看、好用、會動的前端電商</h1>
+        <p class="muted">
+          純 HTML/CSS/JS，商品/購物車/訂單用 localStorage 模擬。支援 RWD、動態 Toast、過場動畫與 hover 反饋。
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#products">開始逛</a>
+        </div>
+      </div>
+
+
+    </section>
+
+    <section class="panel" id="products">
+      <div class="panel__top">
+        <h2>商品列表</h2>
+
+        <div class="controls">
+          <div class="input">
+            <label class="srOnly" for="q">搜尋</label>
+            <input id="q" type="search" placeholder="搜尋商品名稱…" autocomplete="off" />
+          </div>
+
+          <div class="input">
+            <label class="srOnly" for="category">分類</label>
+            <select id="category">
+              <option value="all">全部分類</option>
+            </select>
+          </div>
+
+          <div class="input">
+            <label class="srOnly" for="sort">排序</label>
+            <select id="sort">
+              <option value="popular">熱門優先</option>
+              <option value="priceAsc">價格：低 → 高</option>
+              <option value="priceDesc">價格：高 → 低</option>
+              <option value="newest">最新上架</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="productGrid" class="grid" aria-live="polite"></div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="muted">© MiniShop (Front-end Demo)</span>
+      <a class="link" href="./404.html">404 測試頁</a>
+    </div>
+  </footer>
+
+  <div id="toastHost" class="toastHost" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/app.js" defer></script>
+  <script src="./js/auth.js" defer></script>
+  <script src="./js/newyear.js" defer></script>
 </body>
 </html>

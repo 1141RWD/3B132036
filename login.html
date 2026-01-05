@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniShop｜登入</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./index.html">
+      <span class="brand__mark">M</span><span>MiniShop</span>
+    </a>
+    <nav class="nav">
+      <a class="nav__link" href="./index.html">商城</a>
+      <a class="nav__link" href="./cart.html">購物車 <span id="cartBadge" class="badge">0</span></a>
+      <a class="nav__link is-active" href="./login.html">登入</a>
+      <!-- 管理連結由 JS 決定是否顯示 -->
+      <a class="nav__link hidden" id="adminLink" href="./admin.html">管理</a>
+    </nav>
+    <button class="iconBtn" id="themeBtn" type="button" aria-label="切換深色模式">🌙</button>
+  </header>
+
+  <main class="container page page--fade">
+    <section class="panel" style="max-width:520px; margin:18px auto 0;">
+      <div class="panel__top">
+        <h2>會員登入</h2>
+        <a class="btn btn--ghost btn--sm" href="./register.html">去註冊</a>
+      </div>
+
+      <form id="loginForm" class="form">
+        <div class="input">
+          <label for="username">帳號</label>
+          <input id="username" autocomplete="username" required />
+        </div>
+
+        <div class="input">
+          <label for="password">密碼</label>
+          <input id="password" type="password" autocomplete="current-password" required />
+        </div>
+
+        <button class="btn btn--primary btn--block" type="submit">登入</button>
+
+        <div class="divider"></div>
+      </form>
+    </section>
+  </main>
+
+  <div id="toastHost" class="toastHost" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js" defer></script>
+  <script src="./js/newyear.js" defer></script>
+</body>
+</html>

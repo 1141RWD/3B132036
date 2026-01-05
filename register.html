@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniShop｜註冊</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="./index.html">
+      <span class="brand__mark">M</span><span>MiniShop</span>
+    </a>
+    <nav class="nav">
+      <a class="nav__link" href="./index.html">商城</a>
+      <a class="nav__link" href="./cart.html">購物車 <span id="cartBadge" class="badge">0</span></a>
+      <a class="nav__link" href="./login.html">登入</a>
+      <a class="nav__link is-active" href="./register.html">註冊</a>
+      <a class="nav__link hidden" id="adminLink" href="./admin.html">管理</a>
+    </nav>
+    <button class="iconBtn" id="themeBtn" type="button" aria-label="切換深色模式">🌙</button>
+  </header>
+
+  <main class="container page page--fade">
+    <section class="panel" style="max-width:520px; margin:18px auto 0;">
+      <div class="panel__top">
+        <h2>會員註冊</h2>
+        <a class="btn btn--ghost btn--sm" href="./login.html">回登入</a>
+      </div>
+
+      <form id="registerForm" class="form">
+        <div class="input">
+          <label for="rUsername">帳號（不可與 a1 重複）</label>
+          <input id="rUsername" required minlength="2" maxlength="20" placeholder="例如：user001" />
+        </div>
+
+        <div class="input">
+          <label for="rPassword">密碼</label>
+          <input id="rPassword" type="password" required minlength="3" maxlength="30" placeholder="至少 3 碼" />
+        </div>
+
+        <div class="input">
+          <label for="rName">暱稱（可選）</label>
+          <input id="rName" maxlength="20" placeholder="例如：小明" />
+        </div>
+
+        <button class="btn btn--primary btn--block" type="submit">建立帳號</button>
+
+        <p class="muted tiny" style="margin:10px 0 0;">
+          * 本作業使用 localStorage 儲存帳號資料（前端示範用）。
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <div id="toastHost" class="toastHost" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./js/data.js"></script>
+  <script src="./js/auth.js" defer></script>
+  <script src="./js/newyear.js" defer></script>
+</body>
+</html>
